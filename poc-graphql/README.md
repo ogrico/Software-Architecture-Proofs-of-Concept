@@ -1,0 +1,141 @@
+# POC: GraphQL Moderno vs Enfoque Legado (REST)
+
+[![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![GraphQL](https://img.shields.io/badge/GraphQL-16-E10098?logo=graphql&logoColor=white)](https://graphql.org/)
+[![Apollo Server](https://img.shields.io/badge/Apollo_Server-v4-311C87?logo=apollographql&logoColor=white)](https://www.apollographql.com/docs/apollo-server/)
+[![Express](https://img.shields.io/badge/Express-4-black?logo=express&logoColor=white)](https://expressjs.com/)
+[![Status](https://img.shields.io/badge/status-scaffold-orange)](#estado-actual)
+
+Comparacion practica entre una API REST tradicional y una API GraphQL moderna usando el mismo dominio de negocio.
+
+## Tabla de contenido
+- [Objetivo](#objetivo)
+- [Dominio de la POC](#dominio-de-la-poc)
+- [Arquitectura del proyecto](#arquitectura-del-proyecto)
+- [Comparacion de enfoques](#comparacion-de-enfoques)
+- [Stack tecnico](#stack-tecnico)
+- [Requisitos](#requisitos)
+- [Instalacion](#instalacion)
+- [Ejecucion](#ejecucion)
+- [Demo esperada](#demo-esperada)
+- [Estado actual](#estado-actual)
+- [Roadmap corto](#roadmap-corto)
+- [Licencia](#licencia)
+
+## Objetivo
+Demostrar las ventajas de GraphQL moderno frente a un enfoque legado (REST tradicional o GraphQL mal implementado), aplicando ambos sobre el mismo dominio de datos.
+
+## Dominio de la POC
+Biblioteca de libros:
+
+`Author (1) -> (N) Book (1) -> (N) Review`
+
+## Arquitectura del proyecto
+
+```text
+poc-graphql/
+|-- legacy-rest/          # API REST tradicional (enfoque legado)
+|   |-- server.js
+|   `-- data.js
+|
+|-- graphql-modern/       # API GraphQL moderna
+|   |-- server.js
+|   |-- schema.js
+|   |-- resolvers.js
+|   `-- data.js
+|
+|-- client/               # Cliente para comparar ambos enfoques
+|   |-- rest-client.js
+|   `-- graphql-client.js
+|
+`-- README.md
+```
+
+## Comparacion de enfoques
+
+| Criterio | REST tradicional | GraphQL moderno |
+|---|---|---|
+| Obtencion de datos | Multiples endpoints | Un solo endpoint con consultas flexibles |
+| Over-fetching / under-fetching | Frecuente | Minimizado |
+| Evolucion del contrato | Versionado de endpoints | Evolucion del esquema |
+| Experiencia de cliente | Acoplado a respuestas fijas | Cliente define exactamente lo que necesita |
+
+## Stack tecnico
+- Runtime: Node.js
+- REST: Express
+- GraphQL: Apollo Server + GraphQL
+- Lenguaje: JavaScript (CommonJS)
+
+## Requisitos
+- Node.js 18+
+- npm 9+
+
+## Instalacion
+
+```bash
+npm install
+```
+
+## Ejecucion
+
+API REST (legado):
+
+```bash
+npm run start:rest
+```
+
+API GraphQL (moderna):
+
+```bash
+npm run start:graphql
+```
+
+## Demo esperada
+Cuando la implementacion este completa, la comparacion deberia incluir:
+
+1. Peticion REST para obtener autores con libros y reseñas (potencialmente multiples llamadas).
+2. Consulta GraphQL equivalente en una sola operacion.
+3. Comparacion de payload devuelto (campos requeridos vs campos extra).
+4. Comparacion de complejidad en cliente y evolucion de contrato.
+
+Ejemplo de consulta GraphQL esperada:
+
+```graphql
+query AuthorsWithBooksAndReviews {
+	authors {
+		id
+		name
+		books {
+			id
+			title
+			reviews {
+				id
+				rating
+				comment
+			}
+		}
+	}
+}
+```
+
+## Estado actual
+El repositorio contiene la estructura y scripts base de la POC.
+
+Actualmente estos archivos estan creados pero aun vacios:
+- `legacy-rest/server.js`
+- `legacy-rest/data.js`
+- `graphql-modern/server.js`
+- `graphql-modern/schema.js`
+- `graphql-modern/resolvers.js`
+- `graphql-modern/data.js`
+- `client/rest-client.js`
+- `client/graphql-client.js`
+
+## Roadmap corto
+1. Modelar datos compartidos (`authors`, `books`, `reviews`).
+2. Exponer endpoints REST minimos para lectura.
+3. Definir `schema` y `resolvers` GraphQL equivalentes.
+4. Implementar clientes de prueba y medir diferencias de consumo.
+
+## Licencia
+MIT

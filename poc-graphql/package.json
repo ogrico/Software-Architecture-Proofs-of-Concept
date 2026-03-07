@@ -1,0 +1,33 @@
+{
+  "name": "poc-graphql",
+  "version": "1.0.0",
+  "description": "Poc para Demostrar las ventajas de GraphQL moderno frente a un enfoque \"legado\" (REST tradicional o GraphQL mal implementado / sin aprovechar sus ventajas), aplicando ambos sobre el mismo dominio de datos.",
+  "keywords": [
+    "GraphQL"
+  ],
+  "homepage": "https://github.com/ogrico/Software-Architecture-Proofs-of-Concept#readme",
+  "bugs": {
+    "url": "https://github.com/ogrico/Software-Architecture-Proofs-of-Concept/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ogrico/Software-Architecture-Proofs-of-Concept.git"
+  },
+  "license": "MIT",
+  "author": "Oscar Geovany Rico",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start:rest": "node legacy-rest/server.js",
+    "start:graphql": "node graphql-modern/server.js",
+    "compare:rest": "node client/rest-client.js",
+    "compare:graphql": "node client/graphql-client.js",
+    "compare:metrics": "node client/compare-metrics.js"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.0.0",
+    "express": "^4.18.0",
+    "graphql": "^16.0.0",
+    "body-parser": "^1.20.0"
+  }
+}

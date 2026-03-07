@@ -4,7 +4,7 @@
  * Objetivo: Obtener el nombre de un autor y los títulos de sus libros
  * con el rating promedio de cada uno.
  * 
- * ❌ Problema demostrado:
+ *    Problema demostrado:
  *    - Necesitamos 4 llamadas HTTP para obtener lo que GraphQL da en 1
  *    - Recibimos campos que no necesitamos (over-fetching)
  */
@@ -22,20 +22,20 @@ async function fetchWithLog(label, url) {
 
 async function getAuthorWithBooksAndReviews(authorId) {
   console.log("\n========================================");
-  console.log("🔴 CLIENTE REST LEGADO");
+  console.log("CLIENTE REST LEGADO");
   console.log("   Tarea: obtener autor + libros + reseñas");
   console.log("========================================");
 
   let totalRequests = 0;
 
   // Llamada 1: Obtener el autor
-  // ❌ Over-fetching: recibo nationality, birthYear aunque no los necesito
+  // Over-fetching: recibo nationality, birthYear aunque no los necesito
   const author = await fetchWithLog("Obtener autor", `${BASE_URL}/authors/${authorId}`);
   totalRequests++;
 
   // Llamada 2: Obtener TODOS los libros y filtrar en cliente
-  // ❌ Over-fetching: recibo pages, genre aunque no los necesito
-  // ❌ Over-fetching: recibo libros de OTROS autores también
+  // Over-fetching: recibo pages, genre aunque no los necesito
+  // Over-fetching: recibo libros de OTROS autores también
   const allBooks = await fetchWithLog("Obtener todos los libros", `${BASE_URL}/books`);
   totalRequests++;
   const authorBooks = allBooks.filter(b => b.authorId === String(authorId));
@@ -53,9 +53,9 @@ async function getAuthorWithBooksAndReviews(authorId) {
       : "Sin reseñas";
 
     booksWithReviews.push({
-      title: book.title,         // ✅ Lo necesito
-      avgRating,                 // ✅ Lo necesito
-      // year, genre, pages      // ❌ Los recibí pero no los uso
+      title: book.title,         // Lo necesito
+      avgRating,                 // Lo necesito
+      // year, genre, pages      // Los recibí pero no los uso
     });
   }
 
@@ -66,7 +66,7 @@ async function getAuthorWithBooksAndReviews(authorId) {
     autor: author.name,
     libros: booksWithReviews
   });
-  console.log(`\n⚠️  Total de requests HTTP realizados: ${totalRequests}`);
+  console.log(`\nTotal de requests HTTP realizados: ${totalRequests}`);
   console.log("========================================\n");
 }
 

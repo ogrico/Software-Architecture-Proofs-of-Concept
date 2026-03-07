@@ -4,7 +4,7 @@
  * Objetivo: Obtener el nombre de un autor y los títulos de sus libros
  * con el rating promedio de cada uno.
  * 
- * ✅ Ventajas demostradas:
+ *    Ventajas demostradas:
  *    - Una sola llamada HTTP (vs 4+ en REST)
  *    - Solo recibimos los campos que pedimos (no over-fetching)
  *    - La query autodocumenta exactamente qué datos necesitamos
@@ -12,16 +12,16 @@
 
 const GRAPHQL_URL = "http://localhost:4000/graphql";
 
-// ✅ La query declara EXACTAMENTE lo que necesitamos
+// La query declara EXACTAMENTE lo que necesitamos
 // No más, no menos
 const GET_AUTHOR_WITH_BOOKS = `
   query GetAuthorWithBooks($id: ID!) {
     author(id: $id) {
-      name                   # ✅ Solo el nombre (no nationality, no birthYear)
+      name                   # Solo el nombre (no nationality, no birthYear)
       books {
-        title                # ✅ Solo el título (no year, no genre, no pages)
+        title                # Solo el título (no year, no genre, no pages)
         reviews {
-          rating             # ✅ Solo el rating (no comment, no reviewer)
+          rating             # Solo el rating (no comment, no reviewer)
         }
       }
     }
@@ -53,7 +53,7 @@ async function graphqlRequest(query, variables = {}) {
 
 async function getAuthorWithBooksAndReviews(authorId) {
   console.log("\n========================================");
-  console.log("🟢 CLIENTE GRAPHQL MODERNO");
+  console.log("CLIENTE GRAPHQL MODERNO");
   console.log("   Tarea: obtener autor + libros + reseñas");
   console.log("========================================");
 
@@ -70,13 +70,13 @@ async function getAuthorWithBooksAndReviews(authorId) {
   }));
 
   console.log("\n========================================");
-  console.log("📊 RESULTADO FINAL (GraphQL)");
+  console.log("RESULTADO FINAL (GraphQL)");
   console.log("========================================");
   console.log({
     autor: author.name,
     libros,
   });
-  console.log(`\n✅ Total de requests HTTP realizados: 1`);
+  console.log(`\nTotal de requests HTTP realizados: 1`);
   console.log("========================================\n");
 }
 

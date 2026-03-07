@@ -14,7 +14,7 @@ async function startServer() {
   app.use("/graphql", bodyParser.json(), expressMiddleware(server));
 
   app.listen(4000, () =>
-    console.log("🟢 GraphQL Moderno corriendo en http://localhost:4000/graphql")
+    console.log("GraphQL Moderno corriendo en http://localhost:4000/graphql")
   );
 }
 

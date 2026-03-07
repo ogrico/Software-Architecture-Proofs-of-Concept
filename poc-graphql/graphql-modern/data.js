@@ -1,7 +1,7 @@
 const authors = [
 	{
 		id: "1",
-		name: "Gabriel Garcia Marquez",
+		name: "Gabriel García Márquez",
 		nationality: "Colombian",
 		birthYear: 1927,
 	},
@@ -16,7 +16,7 @@ const authors = [
 const books = [
 	{
 		id: "1",
-		title: "Cien anos de soledad",
+		title: "Cien años de soledad",
 		authorId: "1",
 		year: 1967,
 		genre: "Magical Realism",
@@ -24,7 +24,7 @@ const books = [
 	},
 	{
 		id: "2",
-		title: "El amor en los tiempos del colera",
+		title: "El amor en los tiempos del cólera",
 		authorId: "1",
 		year: 1985,
 		genre: "Romance",
@@ -32,7 +32,7 @@ const books = [
 	},
 	{
 		id: "3",
-		title: "La casa de los espiritus",
+		title: "La casa de los espíritus",
 		authorId: "2",
 		year: 1982,
 		genre: "Magical Realism",
@@ -59,8 +59,8 @@ const reviews = [
 		id: "3",
 		bookId: "3",
 		rating: 5,
-		comment: "Increible",
-		reviewer: "Maria",
+		comment: "Increíble",
+		reviewer: "María",
 	},
 ];
 

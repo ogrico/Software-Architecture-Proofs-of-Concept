@@ -17,7 +17,9 @@ Comparacion practica entre una API REST tradicional y una API GraphQL moderna us
 - [Requisitos](#requisitos)
 - [Instalacion](#instalacion)
 - [Ejecucion](#ejecucion)
-- [Demo esperada](#demo-esperada)
+- [Comparacion ejecutable](#comparacion-ejecutable)
+- [Resultado baseline](#resultado-baseline)
+- [Demo de referencia](#demo-de-referencia)
 - [Estado actual](#estado-actual)
 - [Roadmap corto](#roadmap-corto)
 - [Licencia](#licencia)
@@ -90,15 +92,49 @@ API GraphQL (moderna):
 npm run start:graphql
 ```
 
-## Demo esperada
-Cuando la implementacion este completa, la comparacion deberia incluir:
+## Comparacion ejecutable
+Con ambos servidores levantados, puedes correr:
+
+Cliente REST (flujo con multiples llamadas):
+
+```bash
+npm run compare:rest
+```
+
+Cliente GraphQL (flujo en una sola llamada):
+
+```bash
+npm run compare:graphql
+```
+
+Metricas automaticas (requests y bytes de payload):
+
+```bash
+npm run compare:metrics
+```
+
+## Resultado baseline
+Resultado real obtenido con `npm run compare:metrics` para el caso:
+`autor + libros + ratings de resenas`.
+
+| Enfoque | Requests | Payload |
+|---|---:|---:|
+| REST | 4 | 576 B |
+| GraphQL | 1 | 198 B |
+
+Resumen de mejora con GraphQL:
+- Reduccion de requests: `75.0%`
+- Reduccion de payload: `65.6%`
+
+## Demo de referencia
+La comparacion implementada incluye:
 
 1. Peticion REST para obtener autores con libros y reseñas (potencialmente multiples llamadas).
 2. Consulta GraphQL equivalente en una sola operacion.
 3. Comparacion de payload devuelto (campos requeridos vs campos extra).
 4. Comparacion de complejidad en cliente y evolucion de contrato.
 
-Ejemplo de consulta GraphQL esperada:
+Ejemplo de consulta GraphQL usada en la comparacion:
 
 ```graphql
 query AuthorsWithBooksAndReviews {

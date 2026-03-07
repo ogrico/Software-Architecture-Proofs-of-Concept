@@ -19,7 +19,10 @@
   "main": "app.js",
   "scripts": {
     "start:rest": "node legacy-rest/server.js",
-    "start:graphql": "node graphql-modern/server.js"
+    "start:graphql": "node graphql-modern/server.js",
+    "compare:rest": "node client/rest-client.js",
+    "compare:graphql": "node client/graphql-client.js",
+    "compare:metrics": "node client/compare-metrics.js"
   },
   "dependencies": {
     "@apollo/server": "^4.0.0",

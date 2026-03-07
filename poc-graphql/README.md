@@ -119,17 +119,12 @@ query AuthorsWithBooksAndReviews {
 ```
 
 ## Estado actual
-El repositorio contiene la estructura y scripts base de la POC.
-
-Actualmente estos archivos estan creados pero aun vacios:
-- `legacy-rest/server.js`
-- `legacy-rest/data.js`
-- `graphql-modern/server.js`
-- `graphql-modern/schema.js`
-- `graphql-modern/resolvers.js`
-- `graphql-modern/data.js`
-- `client/rest-client.js`
-- `client/graphql-client.js`
+La POC ya cuenta con:
+- API REST legado funcional en `legacy-rest/server.js`.
+- API GraphQL funcional en `graphql-modern/server.js`.
+- Esquema y resolvers configurados en `graphql-modern/schema.js` y `graphql-modern/resolvers.js`.
+- Datos de ejemplo cargados en ambos enfoques (`legacy-rest/data.js` y `graphql-modern/data.js`).
+- Clientes de comparacion implementados en `client/rest-client.js` y `client/graphql-client.js`.
 
 ## Roadmap corto
 1. Modelar datos compartidos (`authors`, `books`, `reviews`).

@@ -1,0 +1,13 @@
+{
+  "name": "circuit-breaker-poc",
+  "version": "1.0.0",
+  "description": "Prueba de Concepto: Patrón Circuit Breaker en Node.js",
+  "main": "src/demo.js",
+  "scripts": {
+    "start": "node src/demo.js",
+    "demo": "node src/demo.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}

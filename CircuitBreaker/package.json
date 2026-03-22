@@ -5,7 +5,8 @@
   "main": "src/demo.js",
   "scripts": {
     "start": "node src/demo.js",
-    "demo": "node src/demo.js"
+    "demo": "node src/demo.js",
+    "compare": "node src/compare.js"
   },
   "dependencies": {
     "chalk": "^4.1.2"

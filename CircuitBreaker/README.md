@@ -1,11 +1,5 @@
 # Patrón Circuit Breaker — Prueba de Concepto
 
-> **Repositorio:** Software-Architecture-Proofs-of-Concept  
-> **Carpeta:** `CircuitBreaker/`  
-> **Rama:** integration
-
----
-
 ## Descripción de la prueba
 
 Esta prueba de concepto implementa el **patrón Circuit Breaker** (Disyuntor) en Node.js, aplicado a un escenario realista: una aplicación de e-commerce que procesa pagos a través de un servicio externo de terceros.

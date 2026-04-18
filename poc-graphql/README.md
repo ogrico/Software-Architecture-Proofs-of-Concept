@@ -113,7 +113,7 @@ Metricas automaticas (requests y bytes de payload):
 npm run compare:metrics
 ```
 
-## Resultado baseline
+## Resultado
 Resultado real obtenido con `npm run compare:metrics` para el caso:
 `autor + libros + ratings de resenas`.
 
